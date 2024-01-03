@@ -1,0 +1,58 @@
+h1{
+    margin-bottom: 30px;
+}
+
+section{
+    padding: 50px 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+section img{
+    max-width: 100%; /* Set maximum width to 100% of its container */
+    max-height: 800px; /* Set maximum height to 800 pixels */
+    height: auto; /* Maintain aspect ratio and responsiveness */
+    width: auto; /* Maintain aspect ratio and responsiveness */
+    margin:0 auto;
+}
+
+#admin-actions{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#delete{
+    background-color: black;
+    color: orange;
+}
+
+#delete:hover{
+    background-color: orange;
+    color: black;
+}
+
+@media only screen and (max-width: 862px) {
+    #theImage{
+        width: 95%;
+    }
+    section{
+        padding: 50px 2%;
+    }
+    #delete, #name-change-container, #UpdateName{
+        margin: 5px auto;
+        width: 80%;
+    }
+    #admin-actions{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h1{
+        font-size: 30px;
+    }
+}

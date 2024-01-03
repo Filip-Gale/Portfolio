@@ -1,0 +1,112 @@
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0;
+}
+
+#imageSection{
+    min-height: 500px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    margin: 10px 5px;
+    cursor: pointer;
+    border: 3px #333 solid;
+    transition: 0.2s;
+    overflow: hidden; /* Hide overflowing content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    width: auto;
+    height: 100%; /* Fill the container height */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+.image-container:hover{
+    border:rgb(221, 84, 0) solid;
+}
+
+#category-selector{
+    padding: 75px 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    font-size: 30px;
+    flex-wrap: wrap;
+}
+
+.img-category, input, button{
+    margin:15px 30px;
+    background-color: rgb(221, 84, 0) ;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.2s;
+    border: 0;
+}
+
+#upload-section{
+    align-items: center;
+    padding: 15px 0;
+    font-size: 18px;
+}
+
+input, button{
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+.img-category:hover, input:hover, button:hover {
+    background-color: rgb(253, 217, 87);
+    color: #222;
+    cursor: pointer;
+}
+
+#mainImageSection{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.imageColumn {
+    width: 32%;
+    flex-direction: column;
+    border: 0;
+  }
+  
+  .image-container {
+    width: 100%;
+    background-size: cover;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+.image-container img{
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    
+}
+
+@media only screen and (max-width: 862px) {
+    #mainImageSection{
+        flex-direction: column;
+    }
+    .imageColumn{
+        width: 80%;
+        padding-bottom: 0;
+    }
+   
+}

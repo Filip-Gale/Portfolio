@@ -1,0 +1,64 @@
+article{
+    max-width: 1200px;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    border:2px solid   rgb(220, 84, 1);
+    transition: 0.3s;
+    background-color: #222;
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+}
+
+article:hover{
+    background-size: auto 100%;
+    border-color: rgb(241, 189, 1);
+    border-top: 50px solid;
+    color:rgb(241, 189, 1);
+}
+
+article img{
+    width: 100%;
+}
+
+.gameTitle{
+    margin-right: 5%;
+    font-size: 36px;
+    transition: 0.3s;
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+    color:rgb(220, 84, 1);
+    transition: 0.2s;
+    margin: 0;
+    padding: 0;
+}
+
+article h4{
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+section{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    article{
+        width:55%;
+    }
+}
+
+@media only screen and (max-width: 862px) {
+    article{
+        width: 95%;
+    }
+    section{
+        border-radius: 20px;
+    }
+}

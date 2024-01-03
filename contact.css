@@ -1,0 +1,130 @@
+section{
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 5%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+article{
+    background-color:#222;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    border: #2c3e3e 1px solid;
+    border-radius: 20px;
+    padding: 50px;
+    z-index: 1;
+    justify-content: center;
+    opacity: 95%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    margin:50px 0 50px;
+}
+
+input , textarea{
+    border-radius: 20px;
+    width: 80%;
+    background-color: #070b0e;
+    color: rgb(253, 217, 87);
+    border: 0;
+    margin: 10px auto;
+    font-size: 24px;
+    border-bottom: rgb(221, 84, 0) 3px solid;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+textarea{
+    resize: none;
+}
+
+input:focus, textarea:focus{
+    border-bottom: rgb(253, 217, 87) 3px solid;
+    outline: none;
+}
+
+input::selection{
+    border: 0;
+}
+
+#button, #send{
+    background-color:rgb(221, 84, 0) ;
+    border: 0;
+    width: 50%;
+    color: white;
+}
+
+#button:hover, #send:hover{
+    background-color:rgb(253, 217, 87);
+    color: black;
+    width: 55%;
+}
+
+span{
+    color: red;
+}
+
+a, p{
+    text-decoration: none;
+    color: rgb(253, 217, 87);
+}
+
+a:hover{
+    color: white;
+}
+
+h2{
+    color: #666;
+}
+
+#alt{
+    background-color: #222;
+}
+
+section{
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 1450px) {
+    #vje, #jel, #paralax2, #paralax3{
+        display: none;
+    }
+    article{
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 666px) {
+    article{
+        width: 85%;
+        padding:5%;
+        background: none;
+        border: none;
+    }
+    #alt{
+        background: none;
+    }
+    form{
+        width: 100%;
+    }
+    section{
+        padding:50px 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    input, textarea{
+        width: 95%;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+}

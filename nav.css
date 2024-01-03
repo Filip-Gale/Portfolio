@@ -1,0 +1,166 @@
+
+nav{
+    position: fixed;
+    margin-top: -250px;
+    margin: -250px auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition: 0.1s;
+    z-index: 100;
+}
+
+#logo{
+    position: absolute;
+    width: 5%;
+    top: 10px;
+    left: 47.5%;
+    transition: 0.2s;
+}
+
+#logo:hover{
+    top: 15px;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    list-style: none;
+    font-size: 24px;
+    justify-content: center;
+}
+
+#nav-left-side{
+    background-image: url("img/leftNavBack.png");
+}
+
+#nav-right-side{
+    background-image: url("img/rightNavBack1.png");
+    background-position: top right;
+
+}
+
+#nav-right-side, #nav-left-side{
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 45%;
+    padding:30px 0;
+}
+
+li{
+    margin: 0 20px;
+    transition: 0.1s;
+    height:30px;
+    white-space: nowrap;
+}
+
+li:hover{
+    padding: 3px 0;
+    border-bottom: 3px solid black;
+}
+
+#nav-left-side li:hover{
+    color:black;
+}
+
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+#nav-right-side a{
+    color: black;
+}
+
+.navBack{
+    background-color: #333;
+}
+
+.dropdown{
+    text-align: center;
+    justify-content: center;
+}
+
+.dropdown-menu{
+    flex-direction: column;
+    visibility: hidden;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+.dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu{
+    visibility: visible;
+}
+
+.dropdown-menu li{
+    width: 100%;
+    background-color: rgb(241, 189, 1);
+    padding: 10px 10px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    ul{
+        font-size: 20px;
+    }
+    #nav-right-side, #nav-left-side{
+        padding: 15px 10px;
+    }
+  }
+
+@media only screen and (max-width: 862px) {
+    ul{
+        flex-direction: column;
+        width: 30%;
+        align-items: center;
+    }
+    #nav-right-side a{
+        color: white;
+    }
+    #logo{
+        width: 80px;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    nav{
+        background-color: #333;
+        border-bottom: solid 1px rgb(221, 84, 0);
+        
+    }
+    
+    nav a{
+        text-align: center;
+    }
+
+    #nav-left-side,#nav-right-side{
+        background-image: none;
+        padding: 0;
+    }
+
+    .dropdown-menu li{
+        padding: 0;
+        background: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .dropdown-menu li a{
+        margin-bottom: 10px;
+        padding: 5px 15px;
+        background-color: #333;
+        
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+

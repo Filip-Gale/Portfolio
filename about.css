@@ -1,0 +1,84 @@
+article{
+    margin: 60px auto 50px;
+    padding: 20px 5%;
+    max-width: 1000px;
+    background-color: #222;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    color: rgb(241, 189, 1);
+}
+
+#cv, #contact{
+    margin: 30px 0;
+}
+
+#cv a , #contact a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(221, 84, 0);
+    border-radius: 15px;
+    padding: 15px 5%;
+    transition: 0.3s;
+}
+
+#cv a:hover , #contact a:hover{
+    color: rgb(253, 217, 87);
+    background-color:black ;
+}
+
+#CV-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0 0;
+}
+
+#CV-container h2{
+    width: 30%;
+    white-space: nowrap;
+}
+
+h2{
+    text-align: center;
+}
+
+
+
+p{
+    text-align: justify;
+}
+
+#images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+article img{
+    width: 30%;
+    margin: 0px 1% 20px;
+}
+
+@media only screen and (max-width: 1450px) {
+    section{
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 666px) {
+    section{
+        padding:0 0 50 0;
+        border-radius: 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;   
+    }
+    p{
+        font-size: 20px;
+        text-align: center;
+    }
+    #CV-container h2{
+        width: 100%;
+    }
+}
