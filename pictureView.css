@@ -18,6 +18,7 @@ section img{
     height: auto; /* Maintain aspect ratio and responsiveness */
     width: auto; /* Maintain aspect ratio and responsiveness */
     margin:0 auto;
+    pointer-events: none;
 }
 
 #admin-actions{

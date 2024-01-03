@@ -31,6 +31,9 @@ async function digitalneSlike(endpoint) {
         const img = document.createElement('img');
         img.src = item.url;
         img.alt = item.name;
+        img.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
         img.classList.add('image-container'); // Adding the class for styling
 
         // Add a click event listener to each image

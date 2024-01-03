@@ -14,7 +14,8 @@ article{
 article:hover{
     background-size: auto 100%;
     border-color: rgb(241, 189, 1);
-    border-top: 50px solid;
+    border-left:15px solid;
+    border-right:15px solid;
     color:rgb(241, 189, 1);
 }
 

@@ -20,6 +20,7 @@ nav{
     top: 10px;
     left: 47.5%;
     transition: 0.2s;
+    pointer-events:initial;
 }
 
 #logo:hover{

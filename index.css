@@ -11,10 +11,17 @@ html{
 body{
     background-color: #333;
     background-image: url("img/backgroundMain.jpg");
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     margin: 0 auto;
     margin-top: 250px;
     transition: 0.1s;
+}
+
+img{
+    user-select: none;
+    pointer-events: none;
 }
 
 h1{
@@ -73,8 +80,13 @@ footer{
     flex-direction: row;
     background-color: #222;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     color: white;
+}
+
+footer a{
+    margin: 0 2%;
+    color: #BBB;
 }
 
 #preloader {
@@ -107,5 +119,11 @@ footer{
     }
     h1{
         font-size: 50px;
+    }
+    footer{
+        flex-direction: column;
+    }
+    footer a{
+        margin: 10px 0;
     }
 }
