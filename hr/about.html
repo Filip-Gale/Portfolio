@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../about.css">
+    <title>FG</title>
+</head>
+
+<body>
+    <script src="nav.js"></script>
+    <h1 id="title">O MENI</h1>
+    <div id="preloader">
+        <img src="../img/loader.gif" alt="Učitavanje..." />
+    </div>
+    <section>
+
+        <article>
+            <h2>Filip Gale</h2>
+            <div id="images">
+                <img src="../img/faca.jpg" alt="ja">
+                <img src="../img/me_2024.jpg" alt="ja">
+            </div>
+            <p>Umjetnik i programer igara strastveno povezujući kreativnost i tehnologiju.</p>
+            <h2 id = "cv"><a href="../FilipGale_CV_EN.pdf" target="_blank" title="Read PDF">Moj CV (EN)</a></h2>
+            <h2 id = "cv"><a href="../FilipGale_CV_HR.pdf" target="_blank" title="Read PDF">Moj CV (HR)</a></h2>
+        </article>
+
+        <article>
+            <h2>Kod u linijama, umjetnost u pikselima </h2>
+            <p>Dok težim prema magistarskom stupnju, strastveno usredotočen na usavršavanje zanata razvoja igara.
+                Od dizajniranja uzbudljivih igrara do stvaranja privlačnih okruženja, pokreću me beskrajne mogućnosti
+                stvaranja iskustava koja očaravaju i inspiriraju.</p>
+            <br>
+            <p> Bez obzira jeste li ovdje radi umjetnosti, tehnologije ili izgradnje svjetova unutar igara,
+                kontaktirajte me.</p>
+
+            <h2 id="contact"><a href="contact.html">Kontakt</a></h2>
+        </article>
+
+    </section>
+    <footer>
+        @honkulus_
+    </footer>
+    <script>
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        var body = document.body;
+
+        // Get the navbar
+        var title = document.getElementById("title");
+        var navbar = document.getElementById("nav");
+        // Get the offset position of the navbar
+        var sticky = 1;
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                title.classList.add("titleScroll");
+                navbar.classList.add("navBack");
+
+            } else {
+                title.classList.remove("titleScroll");
+                navbar.classList.remove("navBack");
+            }
+        }
+        window.addEventListener('load', function () {
+            var preloader = document.getElementById('preloader');
+            preloader.style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>

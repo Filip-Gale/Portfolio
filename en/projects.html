@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../projects.css">
+    <title>FG</title>
+</head>
+
+<body>
+<div id="preloader">
+    <img src="../img/loader.gif" alt="Loading..." />
+  </div>
+<script src="../nav.js"></script>
+    <h1 id="title">PROJECTS</h1>
+    <section id="test">
+   
+
+    </section>
+    <footer>
+        @honkulus_
+    </footer>
+    
+</body>
+<script>
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    var body = document.body;
+
+    // Get the navbar
+    var title = document.getElementById("title");
+    var navbar = document.getElementById("nav");
+    // Get the offset position of the navbar
+    var sticky = 1;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            title.classList.add("titleScroll");
+            navbar.classList.add("navBack");
+
+        } else {
+            title.classList.remove("titleScroll");
+            navbar.classList.remove("navBack");
+        }
+    } 
+
+    window.addEventListener('load', function () {
+      var preloader = document.getElementById('preloader');
+      preloader.style.display = 'none';
+    });
+
+</script>
+<script src="../projects.js"></script>
+</html>

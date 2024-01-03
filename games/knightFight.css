@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url("../img/games/knights16.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before{
+    filter: blur(10px);
+}
+
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 200px;
+    text-align: center;
+    padding-bottom: 200px;
+}
+
+#title{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+h2{
+    color: rgb(255, 196, 0);
+    margin-top: 50px;
+}
+
+img{
+    max-width: 100%;
+}
+
+h3{
+    font-size: 36px;
+    color: rgb(255, 0, 0);
+}
+
+video{
+    width: 80%;
+    margin: 50px auto 0;
+}
+
+p{
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    padding: 0 2%;
+}
+
+img, p, h2, h3{
+    user-select: none;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 862px) {
+    #title{
+        width: 80%;
+    }
+    video{
+        width: 100%;
+    }
+}
