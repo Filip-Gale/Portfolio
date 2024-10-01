@@ -7,7 +7,7 @@ section{
 }
 
 article{
-    background-color:#222;
+    background-color:#22222281;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,11 @@ article{
     z-index: 1;
     justify-content: center;
     opacity: 95%;
+    transition: 0.3s;
+}
+
+article:hover{
+    background-color: #00000083;
 }
 
 form{
@@ -31,15 +36,21 @@ h1{
     margin:50px 0 50px;
 }
 
+h2{
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
 input , textarea{
     border-radius: 20px;
     width: 80%;
-    background-color: #070b0e;
-    color: rgb(253, 217, 87);
+    background-color: #0e161b;
+    color: rgb(138, 195, 248);
     border: 0;
     margin: 10px auto;
     font-size: 24px;
-    border-bottom: rgb(221, 84, 0) 3px solid;
     transition: 0.3s;
     padding: 10px;
 }
@@ -49,7 +60,7 @@ textarea{
 }
 
 input:focus, textarea:focus{
-    border-bottom: rgb(253, 217, 87) 3px solid;
+    color: white;
     outline: none;
 }
 
@@ -58,15 +69,15 @@ input::selection{
 }
 
 #button, #send{
-    background-color:rgb(221, 84, 0) ;
+    background-color:rgb(138, 195, 248) ;
     border: 0;
     width: 50%;
-    color: white;
+    color: black;
 }
 
 #button:hover, #send:hover{
-    background-color:rgb(253, 217, 87);
-    color: black;
+    background-color:rgb(255, 255, 255);
+    
     width: 55%;
 }
 
@@ -76,20 +87,13 @@ span{
 
 a, p{
     text-decoration: none;
-    color: rgb(253, 217, 87);
+    color: rgb(138, 195, 248);
 }
 
 a:hover{
     color: white;
 }
 
-h2{
-    color: #666;
-}
-
-#alt{
-    background-color: #222;
-}
 
 section{
     border-radius: 20px;
@@ -108,11 +112,6 @@ section{
     article{
         width: 85%;
         padding:5%;
-        background: none;
-        border: none;
-    }
-    #alt{
-        background: none;
     }
     form{
         width: 100%;

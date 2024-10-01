@@ -45,6 +45,18 @@
     // Get the offset position of the navbar
     var sticky = 1;
 
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 0) {
+            // User has scrolled down from the top
+            nav.style.marginTop = "-400px";  // Hide the nav
+        } else {
+            // User is at the top
+            nav.style.marginTop = "-200px";  // Show the nav
+        }
+    });
+
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         if (window.pageYOffset >= sticky) {

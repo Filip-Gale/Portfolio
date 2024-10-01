@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,126 +10,46 @@
     <link rel="stylesheet" href="../home.css">
     <title>FG</title>
 </head>
-
 <body>
-    <script src="nav.js"></script>
-    <div id="preloader">
-        <img src="../img/loader.gif" alt="Učitavanje..." />
-    </div>
-    <h1 id="title">DOBRODOŠLI :D</h1>
-    <section>
-        <article class="mobile-columnize">
-            <div class="text-container">
-                <h2>Vaše putovanje počinje ovdje</h2>
-                <p>Dakle, želite koristiti moju web stranicu. Ostavio sam vam nekoliko smjernica kako biste znali gdje tražiti.</p>
-            </div>
-            <img src="../img/home-first.png" alt="logo">
-        </article>
-        <article class="mobile-columnize-r">
-            <img src="../img/home-projects.png" alt="logo">
-            <div class="text-container">
-                <h2>Projekti</h2>
-                <p>Projekti koje sam napravio za fakultet i nekoliko <b>web stranica</b>.</p>
-            </div>
-        </article>
-    </section>
-
-    <div class="picture-Space" id="web-example"></div>
-
-    <section>
-        <article class="mobile-columnize">
-            <div class="text-container">
-                <h2 >Igre</h2>
-                <p>Uglavnom demonstracije koje sam napravio u <b>Unityju</b>. Možete pronaći popis svega što sam naučio uz svaki projekt.</p>
-            </div>
-            <img src="../img/home-games.png" alt="logo">
-        </article>
-    </section>
-
-    <div class="picture-Space" id="home-games-image"></div>
-
-    <section>
-        <article class="mobile-columnize-r">
-            <img src="../img/home-gallery.png" alt="logo">
-            <div class="text-container">
-                <h2 >Galerija</h2>
-                <p>Asortiman umjetnosti koju sam napravio tijekom godina. Možete pronaći sve od <b>digitalne umjetnosti</b> i <b>3D</b> do tradicionalnog slikarstva akrilnim bojama.</p>
-            </div>
-        </article>
-    </section>
-
-    <div class="picture-Space" id="terr"></div>
-
-    <section id="yellow-section">
-        <article class="mobile-columnize-r">
-            <div class="text-container">
-                <h2 >Vještine</h2>
-                <p>Opis mojih trenutnih <b>vještina</b> i često postavljena pitanja.</p>
-            </div>
-            <img src="../img/home-about.png" alt="logo">
-        </article>
-        <article class="mobile-columnize">
-            <img src="../img/home-contact.png" alt="logo">
-            <div class="text-container">
-                <h2 >Kontakt</h2>
-                <p>Obrazac za slanje <b>feedbacka</b>, <b>zahtjeva</b> i drugih <b>pitanja</b>.</p>
-            </div>
-        </article>
-    </section>
+<script src="nav.js"></script>
+<div id="preloader">
+    <img src="../img/loader.gif" alt="Loading..." />
+  </div>
+    <h1 id="title">Filip Gale</h1>
+    <h2>Kod u linijama, umjetnost u pikselima</h2>
+    
     <script src="../footer.js"></script>
 </body>
 
+
+
+
 <script>
     var title = document.getElementById("title");
-    var navbar = document.getElementById("nav");
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {myFunction()};
+    let lastScrollTop = 0;
+    const nav = document.getElementById("nav");
+    
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (scrollTop > lastScrollTop) {
+            // User scrolled down
+            nav.style.marginTop = "-300px";  // Hide the nav by moving it up
+        } else {
+            // User scrolled up
+            nav.style.marginTop = "-400px";  // Show the nav again
+        }
+    
+        lastScrollTop = scrollTop;
+    });
 
     var body = document.body;
 
-    // Get the navbar
-    
-    var pictureHeightOffset
-    if(screen.width>1200){
-        pictureHeightOffset = 400;
-    }else{
-        pictureHeightOffset = 700;
-    }
-    // Get the offset position of the navbar
-    var sticky = 1;
+    body.style.backgroundImage = 'url("../img/backGroundHome.jpg")';
     
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
 
-        var picture = document.getElementById("web-example");
-        var changeBg1 = picture.offsetTop- picture.offsetHeight;
-        picture = document.getElementById("home-games-image");
-        var changeBg2 = picture.offsetTop - picture.offsetHeight;
-        picture = document.getElementById("terr");
-        var changeBg3 = picture.offsetTop- picture.offsetHeight;
-
-        if (window.pageYOffset >= sticky) {
-            title.classList.add("titleScroll");
-            navbar.classList.add("navBack");
-
-        } else {
-            title.classList.remove("titleScroll");
-            navbar.classList.remove("navBack");
-        }
-        if(window.pageYOffset <= changeBg1){
-            body.style.backgroundImage = 'url("../img/backgroundMain.jpg")';
-        }
-        if(window.pageYOffset >= changeBg1 && window.pageYOffset <= changeBg2){
-            body.style.backgroundImage = 'url("../img/backgroundMain2.jpg")';
-        }
-        if(window.pageYOffset >= changeBg2 && window.pageYOffset <= changeBg3){
-            body.style.backgroundImage = 'url("../img/backgroundMain3.jpg")';
-        }
-        if(window.pageYOffset >= changeBg3){
-            body.style.backgroundImage = 'url("../img/backgroundMain4.jpg")';
-        }
-    } 
     
     window.addEventListener('load', function () {
       var preloader = document.getElementById('preloader');

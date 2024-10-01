@@ -30,6 +30,18 @@
 
 
     <script>
+    window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 0) {
+        // User has scrolled down from the top
+        nav.style.marginTop = "-400px";  // Hide the nav
+    } else {
+        // User is at the top
+        nav.style.marginTop = "-200px";  // Show the nav
+    }
+});
+
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {myFunction()};
 

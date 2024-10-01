@@ -32,7 +32,7 @@ img{
 }
 
 .image-container:hover{
-    border:rgb(221, 84, 0) solid;
+    border:rgb(255, 255, 255) solid;
 }
 
 #category-selector{
@@ -41,14 +41,13 @@ img{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #222;
     font-size: 30px;
     flex-wrap: wrap;
 }
 
 .img-category, input, button{
     margin:15px 30px;
-    background-color: rgb(221, 84, 0) ;
+    background-color: rgba(246, 246, 246, 0.324) ;
     padding: 15px;
     border-radius: 10px;
     transition: 0.2s;
@@ -68,7 +67,7 @@ input, button{
 }
 
 .img-category:hover, input:hover, button:hover {
-    background-color: rgb(253, 217, 87);
+    background-color: rgb(255, 255, 255);
     color: #222;
     cursor: pointer;
 }
@@ -109,8 +108,13 @@ input, button{
         flex-direction: column;
     }
     .imageColumn{
-        width: 80%;
+        width: 90%;
         padding-bottom: 0;
     }
-   
+    .img-category{
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.358);
+        width: 25%;
+        text-align: center;
+    }
 }

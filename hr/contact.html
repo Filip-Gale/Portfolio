@@ -16,10 +16,9 @@
 <div id="preloader">
     <img src="../img/loader.gif" alt="Loading..." />
   </div>
+  <h1 id="title">Kontaktirajmo se</h1>
     <section>
     <article id="forma">
-    <h1 id="title">KONTAKTIRAJMO SE</h1>
-        <h2>Kroz formu</h2>
         <!-- https://formsubmit.co/ -->
         <form action="https://formsubmit.co/filipgale6@gmail.com" method="POST">
             <input type="hidden" name="_template" value="table">
@@ -31,14 +30,16 @@
             <textarea placeholder="Poruka" class="form-control" name="message" rows="0" cols="0" required></textarea>
             <input type="submit" value ="Pošalji" id="button">
         </form>
-        <div id="alt">
-            <h2>ili kroz:</h2>
-            <p> <a href="+385 91 3606 988">Tel: +385 91 3606 988</a></p>
-            <p>Email: filipgale6@gmail.com</p>
-            <a href="https://www.instagram.com/honkulus_/" target="_blank">Instagram</a>
-        </div>
     </article>
-    </section>
+</section>
+        <h2>ili</h2>
+        <section>
+            <article>
+                <p> <a href="tel:+385 91 3606 988">+385 91 3606 988</a></p>
+                <p><a href="mailto:filipgale6@gmail.com">filipgale6@gmail.com</a></p>
+                <a href="https://www.instagram.com/honkulus_/" target="_blank"><p>Instagram</p></a>
+            </article>
+        </section>
     <script src="../footer.js"></script>
 </body>
 <script>
@@ -46,6 +47,19 @@
     window.onscroll = function() {myFunction()};
 
     var body = document.body;
+
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 0) {
+            // User has scrolled down from the top
+            nav.style.marginTop = "-400px";  // Hide the nav
+        } else {
+            // User is at the top
+            nav.style.marginTop = "-200px";  // Show the nav
+        }
+    });
 
     // Get the navbar
     var title = document.getElementById("title");
@@ -56,9 +70,11 @@
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         if (window.pageYOffset >= sticky) {
+            title.classList.add("titleScroll");
             navbar.classList.add("navBack");
 
         } else {
+            title.classList.remove("titleScroll");
             navbar.classList.remove("navBack");
         }
     } 

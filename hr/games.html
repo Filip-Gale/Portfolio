@@ -16,7 +16,7 @@
     <img src="../img/loader.gif" alt="Loading..." />
   </div>
 <script src="nav.js"></script>
-    <h1 id="title">IGRE</h1>
+    <h1 id="title">Igre</h1>
     <section id="gameSection">
     
 
@@ -27,6 +27,18 @@
     </script>
 </body>
 <script>
+window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 0) {
+            // User has scrolled down from the top
+            nav.style.marginTop = "-400px";  // Hide the nav
+        } else {
+            // User is at the top
+            nav.style.marginTop = "-200px";  // Show the nav
+        }
+    });
+
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {myFunction()};
 

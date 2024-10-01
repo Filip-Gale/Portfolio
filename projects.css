@@ -5,31 +5,31 @@ section{
 
 a{
     text-decoration: none;
-    color:rgb(220, 84, 1);
+    color:rgba(255, 255, 255, 0.555);
     transition: 0.2s;
     margin: 0;
     padding: 0;
 }
 
 a:hover{
-    color:rgb(241, 189, 1);
+    color:white;
 }
 
 .item-container{
-    background-color: #222;
+    background-color: #293665d8;
     margin: 30px auto;
     text-align: center;
     padding: 15px;
     width: 60%;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(220, 84, 1);
+    border: 1px solid rgba(255, 255, 255, 0.555);
     border-radius: 25px;
 }
 
 .item-container:hover{
-    border: 1px solid rgb(241, 189, 1);
-    background-color: #111;
+    border: 1px solid white;
+    background-color: rgba(17, 17, 17, 0.445)0005b;
 }
 
 

@@ -1,11 +1,10 @@
 article{
     margin: 60px auto 50px;
-    padding: 20px 5%;
+    padding: 30px 5%;
     max-width: 1000px;
-    background-color: #222;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    color: rgb(241, 189, 1);
+    background-color: #2222227d;
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
 }
 
 #cv, #contact{
@@ -15,15 +14,15 @@ article{
 #cv a , #contact a{
     text-decoration: none;
     color: white;
-    background-color: rgb(221, 84, 0);
+    background-color: rgba(255, 255, 255, 0.301);
     border-radius: 15px;
     padding: 15px 5%;
     transition: 0.3s;
 }
 
 #cv a:hover , #contact a:hover{
-    color: rgb(253, 217, 87);
-    background-color:black ;
+    color: rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255) ;
 }
 
 #CV-container{
@@ -80,5 +79,14 @@ article img{
     }
     #CV-container h2{
         width: 100%;
+    }
+    #images{
+        flex-direction: column;
+        justify-content: center;
+    }
+    #images *{
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
     }
 }

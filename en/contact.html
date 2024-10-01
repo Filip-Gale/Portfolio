@@ -16,10 +16,9 @@
 <div id="preloader">
     <img src="../img/loader.gif" alt="Loading..." />
   </div>
+  <h1 id="title">Get in touch</h1>
     <section>
     <article id="forma">
-    <h1 id="title">GET IN TOUCH</h1>
-        <h2>Through this form</h2>
         <!-- https://formsubmit.co/ -->
         <form action="https://formsubmit.co/filipgale6@gmail.com" method="POST">
             <input type="hidden" name="_template" value="table">
@@ -32,12 +31,18 @@
             <input type="submit" value ="Send" id="button">
         </form>
         <div id="alt">
-            <h2>or other:</h2>
+            
+            
+        </div>
+    </article>
+    </section>
+    <h2>or</h2>
+    <section>
+        <article>
             <p> <a href="tel:+385 91 3606 988">+385 91 3606 988</a></p>
             <p><a href="mailto:filipgale6@gmail.com">filipgale6@gmail.com</a></p>
             <a href="https://www.instagram.com/honkulus_/" target="_blank"><p>Instagram</p></a>
-        </div>
-    </article>
+        </article>
     </section>
     <script src="../footer.js"></script>
 </body>
@@ -46,6 +51,19 @@
     window.onscroll = function() {myFunction()};
 
     var body = document.body;
+
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 0) {
+            // User has scrolled down from the top
+            nav.style.marginTop = "-400px";  // Hide the nav
+        } else {
+            // User is at the top
+            nav.style.marginTop = "-200px";  // Show the nav
+        }
+    });
 
     // Get the navbar
     var title = document.getElementById("title");
@@ -56,9 +74,11 @@
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         if (window.pageYOffset >= sticky) {
+            title.classList.add("titleScroll");
             navbar.classList.add("navBack");
 
         } else {
+            title.classList.remove("titleScroll");
             navbar.classList.remove("navBack");
         }
     } 

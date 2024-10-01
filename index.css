@@ -10,7 +10,7 @@ html{
 
 body{
     background-color: #333;
-    background-image: url("img/backgroundMain.jpg");
+    background-image: url("img/backGroundHome.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -25,13 +25,12 @@ img{
 }
 
 h1{
-    margin-top: 250px;
-    color: rgb(253, 217, 87);
+    margin-top: 200px;
+    color: white;
     text-align: center;
     font-size: 70px;
     margin-bottom: 150px;
     user-select: none;
-    text-shadow:  4px 4px rgb(220, 84, 1);
     transition: 0.2s;
 }
 
@@ -65,11 +64,8 @@ p{
 
 
 section{
-    background-color: #333;
     color: white;
     margin: 0 auto;
-    border-radius: 100px;
-    border-top: 3px solid rgb(220, 84, 1);
     padding-bottom: 100px;
 }
 
@@ -78,7 +74,7 @@ footer{
     height:200px;
     display: flex;
     flex-direction: row;
-    background-color: #222;
+    background-color: rgba(1, 1, 1, 0.226);
     align-items: center;
     justify-content:center;
     color: white;
@@ -86,7 +82,7 @@ footer{
 
 footer a{
     margin: 0 2%;
-    color: #BBB;
+    color: white;
 }
 
 #preloader {

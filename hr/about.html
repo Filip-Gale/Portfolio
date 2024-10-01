@@ -21,31 +21,36 @@
     <section>
 
         <article>
-            <h2>Filip Gale</h2>
             <div id="images">
                 <img src="../img/faca.jpg" alt="ja">
                 <img src="../img/me_2024.jpg" alt="ja">
             </div>
-            <p>Umjetnik i programer igara strastveno povezujući kreativnost i tehnologiju.</p>
-            <h2 id = "cv"><a href="../FilipGale_CV_EN.pdf" target="_blank" title="Read PDF">Moj CV (EN)</a></h2>
-            <h2 id = "cv"><a href="../FilipGale_CV_HR.pdf" target="_blank" title="Read PDF">Moj CV (HR)</a></h2>
-        </article>
-
-        <article>
-            <h2>Kod u linijama, umjetnost u pikselima </h2>
-            <p>Dok težim prema magistarskom stupnju, strastveno usredotočen na usavršavanje zanata razvoja igara.
+            <p>Umjetnik i programer igara strastveno povezujući kreativnost i tehnologiju.
                 Od dizajniranja uzbudljivih igrara do stvaranja privlačnih okruženja, pokreću me beskrajne mogućnosti
-                stvaranja iskustava koja očaravaju i inspiriraju.</p>
-            <br>
-            <p> Bez obzira jeste li ovdje radi umjetnosti, tehnologije ili izgradnje svjetova unutar igara,
-                kontaktirajte me.</p>
-
-            <h2 id="contact"><a href="contact.html">Kontakt</a></h2>
+                stvaranja iskustava koja očaravaju i inspiriraju.
+            </p>
+            <div id="CV-container">
+                <h2 id = "cv"><a href="../FilipGale_CV_HR.pdf" target="_blank" title="Read PDF">Životopis (HR)</a></h2>
+                <h2 id = "cv"><a href="../FilipGale_CV_EN.pdf" target="_blank" title="Read PDF">Životopis (EN)</a></h2>
+            </div>
         </article>
 
     </section>
     <script src="../footer.js"></script>
     <script>
+
+    window.addEventListener("scroll", function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 0) {
+                // User has scrolled down from the top
+                nav.style.marginTop = "-400px";  // Hide the nav
+            } else {
+                // User is at the top
+                nav.style.marginTop = "-200px";  // Show the nav
+            }
+        });
+
         // When the user scrolls the page, execute myFunction
         window.onscroll = function () {
             myFunction()

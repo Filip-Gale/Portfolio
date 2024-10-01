@@ -23,5 +23,4 @@ var navigationHTML = '<nav id="nav">' +
     '        </ul>' +
     '    </div>' +
     '</nav>';
-
 document.write(navigationHTML);

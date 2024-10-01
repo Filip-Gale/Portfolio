@@ -16,7 +16,7 @@
     <img src="../img/loader.gif" alt="Loading..." />
   </div>
 <script src="../nav.js"></script>
-    <h1 id="title">PROJECTS</h1>
+    <h1 id="title">Projects</h1>
     <section id="test">
    
 
@@ -35,6 +35,20 @@
     var navbar = document.getElementById("nav");
     // Get the offset position of the navbar
     var sticky = 1;
+    
+    const nav = document.getElementById("nav");
+
+window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 0) {
+        // User has scrolled down from the top
+        nav.style.marginTop = "-400px";  // Hide the nav
+    } else {
+        // User is at the top
+        nav.style.marginTop = "-200px";  // Show the nav
+    }
+});
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
