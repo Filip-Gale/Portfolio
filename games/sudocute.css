@@ -71,11 +71,13 @@ img, p, h2, h3{
     width: 96%;
     margin: 30px 0;
     padding: 0 2%;
+    justify-content: center;
+    align-items: center;
 }
 
 #imageContainer img{
     
-    width: 100%;
+    width: 30%;
 }
 
 #sudoCuteLink{
