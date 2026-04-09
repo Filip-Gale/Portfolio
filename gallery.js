@@ -1,130 +1,71 @@
-var targetSpan = document.getElementById('targetElement');
-
-if (targetSpan) {
-    targetSpan.textContent = "Digital";
-} else {
-    console.log('targetSpan element not found.');
-}
-
-async function digitalneSlike(endpoint) {
-  if (targetSpan) {
-    targetSpan.textContent = endpoint;
-  }
-
-  try {
-    const linkmake = `https://portfolio-817d5-default-rtdb.europe-west1.firebasedatabase.app/${endpoint}.json`;
-    const response = await fetch(linkmake);
-
-    if (response.ok) {
-      const data = await response.json();
-      const parentContainer = document.getElementById('mainImageSection');
-      const children = parentContainer.children;
-
-      // Loop through the children and clear the content inside each child element
-      for (let i = 0; i < children.length; i++) {
-        children[i].innerHTML = '';
-      }
-
-      // Loop through the object keys and create img elements for each object
-      for (const key in data) {
-        const item = data[key];
-        const img = document.createElement('img');
-        img.src = item.url;
-        img.alt = item.name;
-        img.addEventListener('contextmenu', (e) => {
-          e.preventDefault();
-        });
-        img.classList.add('image-container'); // Adding the class for styling
-
-        // Add a click event listener to each image
-        img.addEventListener('click', function() {
-          // Extract the ID of the clicked image container
-          const clickedImageId = key;
-
-          // Redirect to another site with the specific image ID as a query parameter
-          const redirectTo = 'pictureView.html';
-          const urlWithId = `${redirectTo}`;
-          localStorage.setItem('imageId', clickedImageId);
-          localStorage.setItem('name', item.name);
-          localStorage.setItem('originalName', item.originalName);
-          localStorage.setItem('url', item.url);
-          localStorage.setItem('endpoint', endpoint);
-          window.location.href = urlWithId;
-        });
-
-        // Append the image to the appropriate section
-        const sectionNumber = key % 3;
-        const section = parentContainer.querySelector(`.imageColumn:nth-child(${sectionNumber + 1})`);
-        section.appendChild(img);
-      }
-    } else {
-      console.error('Request failed with status:', response.status);
-    }
-  } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error);
-  }
-}
-
-
-
-async function uploadImage(endpoint) {
-  var imageName = '';
-  var fileInput = document.getElementById('uploadImage');
-  var file = fileInput.files[0];
-
-  if (file) {
-    var formData = new FormData();
-    formData.append('image', file);
-
-    // Generate a unique name for the uploaded image (for example, using a timestamp)
-    imageName = new Date().getTime() + '_' + file.name;
-
+// gallery.js - Dynamic from GitHub (img/art folder)
+async function loadGalleryImages() {
     try {
-      const uploadResponse = await fetch(`https://firebasestorage.googleapis.com/v0/b/portfolio-817d5.appspot.com/o/img%2F${imageName}?alt=media&token=3ae11a53-7c26-4d1c-9beb-9c8db8fb3ee2`, {
-        method: 'POST',
-        body: formData
-      });
+        // Correct path: images are inside img/art
+        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio-2026/contents/img/art';
+        
+        const response = await fetch(apiUrl);
 
-      if (uploadResponse.ok) {
-        // Fetch the existing data from the provided endpoint
-        const fetchDataResponse = await fetch(`https://portfolio-817d5-default-rtdb.europe-west1.firebasedatabase.app/${endpoint}.json`);
-        const existingData = await fetchDataResponse.json();
+        if (!response.ok) {
+            throw new Error(`GitHub API failed: ${response.status} - Check if folder 'img/art' exists on GitHub`);
+        }
 
-        // Create a new object with the uploaded image URL and name
-        const newImageObject = {
-          name: imageName,
-          originalName: imageName,
-          url: `https://firebasestorage.googleapis.com/v0/b/portfolio-817d5.appspot.com/o/img%2F${imageName}?alt=media&token=3ae11a53-7c26-4d1c-9beb-9c8db8fb3ee2`
-        };
+        const files = await response.json();
 
-        // Append the new image object to the existing data
-        existingData.push(newImageObject);
+        const parentContainer = document.getElementById('mainImageSection');
+        if (!parentContainer) {
+            console.error('mainImageSection not found');
+            return;
+        }
 
-        // Update the data in the Firebase Realtime Database using PUT method
-        const putResponse = await fetch(`https://portfolio-817d5-default-rtdb.europe-west1.firebasedatabase.app/${endpoint}.json`, {
-          method: 'PUT',
-          body: JSON.stringify(existingData),
-          headers: {
-            'Content-Type': 'application/json'
-          }
+        // Clear the 3 columns
+        for (let i = 0; i < parentContainer.children.length; i++) {
+            parentContainer.children[i].innerHTML = '';
+        }
+
+        // Filter only image files
+        const imageFiles = files.filter(file => 
+            file.type === 'file' && 
+            /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name)
+        );
+
+        // Sort alphabetically
+        imageFiles.sort((a, b) => b.name.localeCompare(a.name));
+
+        imageFiles.forEach((file, index) => {
+            const img = document.createElement('img');
+            
+            img.src = file.download_url;        // direct raw link
+            img.alt = file.name;
+            img.loading = 'lazy';               // lazy loading
+            img.classList.add('image-container');
+
+            // Disable right-click save
+            img.addEventListener('contextmenu', e => e.preventDefault());
+
+            // Open picture view
+            img.addEventListener('click', function () {
+                const cleanName = file.name.replace(/\.[^/.]+$/, "");
+                localStorage.setItem('imageId', index);
+                localStorage.setItem('name', cleanName);
+                localStorage.setItem('originalName', file.name);
+                localStorage.setItem('url', file.download_url);
+                window.location.href = 'pictureView.html';
+            });
+
+            // Distribute into 3 columns
+            const columnIndex = index % 3;
+            const column = parentContainer.querySelector(`.imageColumn:nth-child(${columnIndex + 1})`);
+            if (column) column.appendChild(img);
         });
 
-        if (putResponse.ok) {
-          console.log('Image data updated successfully.');
-        } else {
-          console.error('Failed to update image data.');
-        }
-      } else {
-        console.error('Error uploading image:', uploadResponse.status);
-      }
+        console.log(`✅ Loaded ${imageFiles.length} images dynamically from img/art`);
+
     } catch (error) {
-      console.error('Error:', error);
+        console.error('Error loading gallery:', error);
+        // You can optionally show a user-friendly message here later
     }
-  } else {
-    console.error('No image selected.');
-  }
-  fileInput.value = '';
-  digitalneSlike(endpoint);
 }
 
-digitalneSlike('digital');
+// Run automatically when page loads
+loadGalleryImages();

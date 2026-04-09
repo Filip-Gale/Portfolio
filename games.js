@@ -1,47 +1,88 @@
-async function fetchAndPopulateGames() {
-  try {
-    const link = `https://portfolio-817d5-default-rtdb.europe-west1.firebasedatabase.app/games.json`;
-    const response = await fetch(link);
+// games.js - Dynamic game logos (Title on top, Year on bottom)
 
-    if (response.ok) {
-      const data = await response.json();
-      const gamesData = Object.values(data); // Convert object to array of game objects
+async function loadGames() {
+    try {
+        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio-2026/contents/games/Logos';
+        
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error(`API error: ${response.status}`);
 
-      const parentContainer = document.getElementById('gameSection');
+        const files = await response.json();
 
-      // Loop through the array of game objects
-      gamesData.forEach((game) => {
-        const { img, name, url } = game;
+        const parentContainer = document.getElementById('gameSection');
+        if (!parentContainer) return;
 
-        // Create the elements
-        const article = document.createElement('article');
-        const anchor = document.createElement('a');
-        const div = document.createElement('div');
-        const gameImg = document.createElement('img'); // New img element
-        const heading = document.createElement('h4');
+        parentContainer.innerHTML = '';
 
-        // Set attributes and content
-        anchor.href = url;
-        anchor.target = '_blank'; // Open link in new tab/window
-        gameImg.src = img; // Set the img src attribute
-        div.classList.add('gameTitle');
-        heading.textContent = name;
+        const logoFiles = files.filter(file => 
+            file.type === 'file' && /\.(png|jpg|jpeg|webp|gif)$/i.test(file.name)
+        );
 
-        // Assemble the elements
-        div.appendChild(heading);
-        article.appendChild(gameImg); // Append the img before the div
-        article.appendChild(div);
-        anchor.appendChild(article);
+        if (logoFiles.length === 0) {
+            parentContainer.innerHTML = '<p style="color:#aaa; text-align:center; padding:40px;">No game logos found yet.</p>';
+            return;
+        }
 
-        // Add the elements to the parent container
-        parentContainer.appendChild(anchor);
-      });
-    } else {
-      console.error('Request failed with status:', response.status);
+        // Sort by year descending (newest first)
+        logoFiles.sort((a, b) => {
+            const yearA = parseInt(a.name.split('_')[0]) || 0;
+            const yearB = parseInt(b.name.split('_')[0]) || 0;
+            return yearB - yearA;
+        });
+
+        logoFiles.forEach(file => {
+            const fullName = file.name;
+            const parts = fullName.split('_');
+            const year = parts[0];
+
+            const urlStartIndex = parts.findIndex(p => p.includes('https'));
+            let titleParts = urlStartIndex > 1 ? parts.slice(1, urlStartIndex) : [parts[1] || 'Game'];
+
+            let title = titleParts.join(' ')
+                .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+                .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+                .trim();
+
+            // Rebuild the URL
+            let encodedUrl = urlStartIndex !== -1 ? parts.slice(urlStartIndex).join('_') : '';
+            let gameUrl = encodedUrl
+                .replace('___', '://')
+                .replace(/_/g, '/')
+                .replace(/\.(png|jpg|jpeg|webp|gif)$/i, '');
+
+            const article = document.createElement('article');
+            const anchor = document.createElement('a');
+            const titleEl = document.createElement('h4');
+            const img = document.createElement('img');
+            const yearEl = document.createElement('div');
+
+            anchor.href = gameUrl || '#';
+            anchor.target = "_blank";     // External links open in new tab
+
+            titleEl.textContent = title;
+            titleEl.className = "game-title";
+
+            img.src = file.download_url;
+            img.alt = title;
+            img.loading = "lazy";
+
+            yearEl.className = "game-year";
+            yearEl.textContent = year;
+
+            // New order: Title → Image → Year
+            article.appendChild(titleEl);
+            article.appendChild(img);
+            article.appendChild(yearEl);
+
+            anchor.appendChild(article);
+            parentContainer.appendChild(anchor);
+        });
+
+        console.log(`✅ Loaded ${logoFiles.length} game logos successfully`);
+
+    } catch (error) {
+        console.error('Error loading games:', error);
     }
-  } catch (error) {
-    console.error('There has been a problem:', error);
-  }
 }
 
-fetchAndPopulateGames();
+loadGames();

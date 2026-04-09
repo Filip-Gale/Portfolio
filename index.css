@@ -6,7 +6,14 @@
 
 html{
     scroll-behavior: smooth;
+     overflow-y: scroll;           /* Keeps the page scrollable */
+    scrollbar-width: none;   
 }
+
+html::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari, Edge */
+}
+
 
 body{
     background-color: #333;
@@ -74,10 +81,17 @@ footer{
     height:200px;
     display: flex;
     flex-direction: row;
-    background-color: rgba(1, 1, 1, 0.226);
+    color: white;
+    background: linear-gradient(
+        to top,                       /* Important: "to top" */
+        rgb(45, 45, 45) 0%,           /* Solid dark at the bottom */
+        rgb(45, 45, 45) 70%,          /* Stays solid until 30% from bottom */
+        rgba(45, 45, 45, 0.7) 80%,    /* Starts fading */
+        transparent 100%               /* Almost fully transparent at the top */
+    );
     align-items: center;
     justify-content:center;
-    color: white;
+   
 }
 
 footer a{

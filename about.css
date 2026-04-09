@@ -2,9 +2,15 @@ article{
     margin: 60px auto 50px;
     padding: 30px 5%;
     max-width: 1000px;
-    background-color: #2222227d;
     border-radius: 25px;
     color: rgb(255, 255, 255);
+    background: linear-gradient(
+        to top,                       /* Important: "to top" */
+        rgb(45, 45, 45) 0%,           /* Solid dark at the bottom */
+        rgb(45, 45, 45) 55%,          /* Stays solid until 30% from bottom */
+        rgba(45, 45, 45, 0.7) 60%,    /* Starts fading */
+        transparent 65%               /* Almost fully transparent at the top */
+    );
 }
 
 #cv, #contact{
@@ -13,16 +19,16 @@ article{
 
 #cv a , #contact a{
     text-decoration: none;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.301);
+    background-color:rgb(138, 195, 248);
+    color: rgb(0, 0, 0);
     border-radius: 15px;
     padding: 15px 5%;
     transition: 0.3s;
 }
 
 #cv a:hover , #contact a:hover{
-    color: rgb(0, 0, 0);
-    background-color:rgb(255, 255, 255) ;
+    color: rgb(76, 0, 0);
+    background-color: #ff9900;
 }
 
 #CV-container{
@@ -46,6 +52,7 @@ h2{
 
 p{
     text-align: justify;
+    margin-top: 30px;
 }
 
 #images{

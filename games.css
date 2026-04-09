@@ -1,82 +1,77 @@
-article{
-    max-width: 1200px;
+/* Games Logos Styling */
+#gameSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 700px;
+}
+
+article {
     display: flex;
     flex-direction: column;
-    border:2px solid   rgba(220, 85, 1, 0);
-    transition: 0.3s;
-    background-color: #22222294;
-    justify-content: center;
     align-items: center;
-}
-
-article:hover{
-    background-size: auto 100%;
-    color:rgb(255, 255, 255);
-    border-color: white;
-    background-color: rgba(14, 14, 14, 0.765);;
-}
-
-article img{
-    width: 100%;
-}
-
-.gameTitle{
-    margin-right: 5%;
-    font-size: 36px;
-    transition: 0.3s;
-    width: 50%;
-}
-
-a{
-    text-decoration: none;
-    color:rgba(255, 255, 255, 0.345);
-    transition: 0.2s;
-    margin: 0;
-    padding: 0;
-}
-
-article h4{
-    padding: 15px;
     text-align: center;
-    width: 100%;
+    width: 180px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 10px 0;
+     background: linear-gradient(
+        to bottom,                       /* Important: "to top" */
+        rgb(45, 45, 45) 0%,           /* Solid dark at the bottom */
+        rgb(45, 45, 45) 70%,          /* Stays solid until 30% from bottom */
+        rgba(45, 45, 45, 0.7) 80%,    /* Starts fading */
+        transparent 100%               /* Almost fully transparent at the top */
+    );
 }
 
-section{
-    max-width: 2000px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    display: flex;
-    flex-direction: row;
-    padding: 0 10% 0;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
+article:hover {
+    transform: translateY(-8px);
+    background-color: #333;
+    box-shadow: 0 10px 20px rgba(255, 153, 0, 0.3);
 }
 
-section > * {
-    flex: 1 1 33%; /* Each element takes up roughly 1/3 of the row with spacing */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+article:hover h4{
+    font-weight: bold;
 }
 
-@media only screen and (max-width: 1200px) {
-    article{
-        width:55%;
-    }
+.game-year {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff9900;
+    margin-top: 12px;
 }
 
-@media only screen and (max-width: 862px) {
-    article{
-        width: 95%;
-    }
-    section{
-        border-radius: 20px;
-    }
-    h4{
-        font-size: 20px;
-    }
+article *{
+    border: none;
+}
 
-    section > * {
-        flex: 1 1 80%; /* Each element takes up roughly 1/3 of the row with spacing */
-        box-sizing: border-box; /* Ensure padding and border are included in width */
+article img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+article h4 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #ddd;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+@media (max-width: 862px) {
+    article {
+        width: 160px;
+    }
+    article img {
+        width: 130px;
+        height: 130px;
     }
 }

@@ -7,23 +7,36 @@ section{
 }
 
 article{
-    background-color:#22222281;
     width: 50%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
-    border: #2c3e3e 1px solid;
     border-radius: 20px;
     padding: 50px;
+    padding-bottom: 100px;
     z-index: 1;
     justify-content: center;
-    opacity: 95%;
     transition: 0.3s;
+     background: linear-gradient(
+        to bottom,                       /* Important: "to top" */
+        rgb(45, 45, 45) 0%,           /* Solid dark at the bottom */
+        rgb(45, 45, 45) 75%,          /* Stays solid until 30% from bottom */
+        rgba(45, 45, 45, 0.7) 80%,    /* Starts fading */
+        transparent 95%               /* Almost fully transparent at the top */
+    );
 }
 
-article:hover{
-    background-color: #00000083;
+#secondary{
+     background: linear-gradient(
+        to top,                       /* Important: "to top" */
+        rgb(45, 45, 45) 0%,           /* Solid dark at the bottom */
+        rgb(45, 45, 45) 75%,          /* Stays solid until 30% from bottom */
+        rgba(45, 45, 45, 0.7) 80%,    /* Starts fading */
+        transparent 95%               /* Almost fully transparent at the top */
+    );
+    padding-top: 70px;
+    padding-bottom: 50px;
 }
 
 form{
