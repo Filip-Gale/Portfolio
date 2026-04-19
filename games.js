@@ -2,7 +2,7 @@
 
 async function loadGames() {
     try {
-        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio-2026/contents/games/Logos';
+        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio/contents/games/Logos';
         
         const response = await fetch(apiUrl);
         if (!response.ok) throw new Error(`API error: ${response.status}`);

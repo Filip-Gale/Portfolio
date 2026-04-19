@@ -2,7 +2,7 @@
 async function loadGalleryImages() {
     try {
         // Correct path: images are inside img/art
-        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio-2026/contents/img/art';
+        const apiUrl = 'https://api.github.com/repos/Filip-Gale/Portfolio/contents/img/art';
         
         const response = await fetch(apiUrl);
 
